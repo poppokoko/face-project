@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="concept">
+    <h1>Fake Face</h1>
+    <p>
+      人は自分の顔に価値をつけて、売りに出し、自ら消費される。<br>
+      <br>
+      SNSとマーケティングはもはや区別できない。<br>
+      <br>
+      美しさとは本質ではなく、「今の空気」に合っているかどうか。<br>
+      <br>
+      一時的なマッチングに価値を見出す社会に、あなたの顔はどう評価されるのか。
+    </p>
+  </div>
+
+  <div id="camera-container">
+    <video id="video" autoplay playsinline></video>
+    <img id="captured-img" class="hidden" />
+
+    <!-- pt表示 -->
+    <div id="point-overlay" class="hidden">+0000pt</div>
+
+    <div id="button-area">
+      <!-- 撮影ボタンを画像に -->
+      <img id="capture-btn" src="assets/7.png" alt="撮影ボタン" class="button-img" />
+
+      <div id="confirm-buttons" class="hidden">
+        
+        <br> <p class="prompt">ここに置いていきますか？</p>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No  </button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <div id="fake-notification" class="hidden"></div>
+  <audio id="notification-sound" src="assets/通知音.mp3" preload="auto"></audio>
+
+  <div id="gallery">
+    <h2>Gallery</h2>
+    <div id="gallery-grid"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module">
+    import {
+      FaceDetector,
+      FilesetResolver
+    } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+  
+    window.initFaceDetection = async () => {
+      const vision = await FilesetResolver.forVisionTasks(
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+      );
+      window.faceDetector = await FaceDetector.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/face_detector/face_detector.task"
+        }
+      });
+    };
+  
+    initFaceDetection();
+  </script>
+</body>
+</html>
