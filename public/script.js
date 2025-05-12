@@ -38,6 +38,7 @@ navigator.mediaDevices.getUserMedia({
 
 // 撮影処理
 captureBtn.addEventListener('click', () => {
+  triggerFlashEffect();  // ←ここを追加！
   const ctx = canvas.getContext('2d');
   const size = Math.min(video.videoWidth, video.videoHeight);
   canvas.width = size;
@@ -246,3 +247,24 @@ async function applyWhiteoutToImage() {
     capturedImg.src = currentImage;
   };
 }
+function triggerFlashEffect() {
+  const flash = document.getElementById('flash');
+  const sound = document.getElementById('shutter-sound');
+  const camera = document.getElementById('camera-container');
+
+  // フラッシュ表示
+  flash.style.opacity = '1';
+  setTimeout(() => {
+    flash.style.opacity = '0';
+  }, 100);
+
+  // 撮影音再生
+  sound.currentTime = 0;
+  sound.play();
+
+  // 軽く揺れる
+  camera.classList.add('shake-effect');
+  setTimeout(() => {
+    camera.classList.remove('shake-effect');
+  }, 150);
+}ß
