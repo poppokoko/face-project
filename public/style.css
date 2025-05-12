@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "a-otf-ryumin-pr6n", "Ryumin", serif;
-  background: #ffead2;
+  background: #f9f1e6;
   color: #000;
   padding: 20px;
 }
@@ -173,12 +173,13 @@ button {
   filter: grayscale(1);
 }
 .gallery-item .score {
-  font-size: 30px;
+  font-size: clamp(3px, 0.7vw, 10px); /* 最小3px〜最大10px */
   font-family: monospace;
-  margin-top: 10px;
+  margin-top: 2px;
   text-align: center;
   color: #39FF14;
 }
+
 .button-img {
   width: 60px;
   height: auto;
@@ -211,7 +212,7 @@ button {
   top: -11px;
   right: -1px;
   background: transparent;
-  color: #b5010187 !important;
+  color: #b5010194 !important;
 
 
   border-radius: 50%;
