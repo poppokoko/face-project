@@ -252,19 +252,35 @@ function triggerFlashEffect() {
   const sound = document.getElementById('shutter-sound');
   const camera = document.getElementById('camera-container');
 
+  // ミュート解除と初期化をまず
+  sound.muted = false;
+  sound.currentTime = 0;
+
+  // 安全な再生（catchで失敗も検出）
+  sound.play().catch((e) => {
+    console.warn("🔇 撮影音が再生できません:", e);
+  });
+
   // フラッシュ表示
   flash.style.opacity = '1';
   setTimeout(() => {
     flash.style.opacity = '0';
   }, 100);
 
-  // 撮影音再生
-  sound.currentTime = 0;
-  sound.play();
-
   // 軽く揺れる
   camera.classList.add('shake-effect');
   setTimeout(() => {
     camera.classList.remove('shake-effect');
   }, 150);
-}ß
+}
+
+// 初回クリックで audio 再生許可を得る（iOS対策）
+document.addEventListener('DOMContentLoaded', () => {
+  const shutter = document.getElementById('shutter-sound');
+  document.body.addEventListener('click', () => {
+    shutter.muted = false;
+    shutter.play().catch(() => {});
+    shutter.pause();
+    shutter.currentTime = 0;
+  }, { once: true });
+});
