@@ -173,7 +173,7 @@ button {
   filter: grayscale(1);
 }
 .gallery-item .score {
-  font-size: clamp(18px, 2.5vw, 28px);
+  font-size: clamp(18px, 2.5vw, 35px);
   font-family: monospace;
   margin-top: 4px;
   text-align: center;
