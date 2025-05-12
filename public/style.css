@@ -225,3 +225,26 @@ button {
   cursor: pointer;
   padding: 0;
 }
+/* フラッシュ（全画面白） */
+#flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+/* 軽く震えるアニメ */
+@keyframes shake {
+  0% { transform: scale(1.02); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1.00); }
+}
+.shake-effect {
+  animation: shake 0.15s ease-in-out;
+}
