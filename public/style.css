@@ -173,7 +173,7 @@ button {
   filter: grayscale(1);
 }
 .gallery-item .score {
-  font-size: clamp(9px, 1.5vw, 18px); /* 最小8px〜最大16px */
+  font-size: clamp(10px, 1.5vw, 18px); /* 最小8px〜最大16px */
   font-family: monospace;
   margin-top: 4px;
   text-align: center;
