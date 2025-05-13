@@ -291,8 +291,9 @@ button {
   font-size: 15px;
   color:#b5010194;
   padding: 8px 0;
-  font-family:  "a-otf-ryumin-pr6n", "Ryumin", serif;
+  font-family: "Courier New", Courier, monospace;
   white-space: nowrap;
+  transform: scale(0.9, 1);
 
 }
 @keyframes scroll-up {
