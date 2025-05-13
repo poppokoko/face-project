@@ -261,18 +261,16 @@ button {
 }
 
 
-
-
 #visitor-marquee-wrapper {
-  width: 220px;
-  height: 200px;
+  width: 200px; /* ← 横書き→縦回転後に合う幅 */
+  height: 300px;
   overflow: hidden;
-  position: absolute;
-  top: 100px;
-  left: 0;
+  position: relative;
   z-index: 10;
 
-  /* フェード感を出すグラデーションマスク */
+  display: flex;
+  flex-direction: column;
+
   -webkit-mask-image: linear-gradient(to top, transparent, black 30%, black 70%, transparent);
   mask-image: linear-gradient(to top, transparent, black 30%, black 70%, transparent);
 }
@@ -282,7 +280,6 @@ button {
   flex-direction: column;
   animation: scroll-up 20s linear infinite;
 }
-
 .visitor-line {
   font-size: 14px;
   color: #000;
@@ -290,8 +287,10 @@ button {
   white-space: nowrap;
   font-family: monospace;
   text-align: left;
-}
 
+  transform: rotate(-90deg);
+  transform-origin: left top;
+}
 @keyframes scroll-up {
   0% {
     transform: translateY(100%);
