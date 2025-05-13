@@ -288,11 +288,12 @@ button {
 }
 
 .visitor-line {
-  font-size: 14px;
-  color: #000;
+  font-size: 10px;
+  color: #39FF14;
   padding: 8px 0;
   font-family: "a-otf-ryumin-pr6n", "Ryumin", serif;
   white-space: nowrap;
+
 }
 @keyframes scroll-up {
   0% {
@@ -302,3 +303,4 @@ button {
     transform: translateY(-100%);
   }
 }
+
