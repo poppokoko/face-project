@@ -43,6 +43,24 @@ app.post('/save', (req, res) => {
   res.sendStatus(200);
 });
 
+
+// 人数カウント取得
+app.get('/count', (req, res) => {
+  const data = fs.existsSync('count.json') ? JSON.parse(fs.readFileSync('count.json')) : { count: 1 };
+  res.json({ count: data.count });
+});
+
+// 人数カウント加算
+app.post('/increment', (req, res) => {
+  const filePath = 'count.json';
+  const data = fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath)) : { count: 1 };
+  data.count += 1;
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  res.sendStatus(200);
+});
+
+
+
 // ギャラリーから削除（先頭一致）
 app.post('/delete', (req, res) => {
   const { image } = req.body;

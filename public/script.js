@@ -78,6 +78,11 @@ applyWhiteoutToImage();
 
 // Yesで保存
 yesBtn.addEventListener('click', async () => {
+
+
+  await fetch('/increment', { method: 'POST' });
+
+
   const response = await fetch('/save', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -130,6 +135,28 @@ async function loadGallery() {
   });
 }
 
+
+
+
+
+
+
+// ✅ 人数表示の読み込み関数
+async function loadVisitorCount() {
+  const res = await fetch('/count');
+  const data = await res.json();
+
+  const marquee = document.getElementById('visitor-marquee');
+  marquee.innerHTML = '';
+
+  for (let i = 0; i < 30; i++) {
+    const line = document.createElement('div');
+    line.className = 'visitor-line';
+    line.textContent = `${data.count}人が顔を置いていきました`;
+    marquee.appendChild(line);
+  }
+}
+
 // 削除処理
 async function deleteImage(image) {
   const response = await fetch('/delete', {
@@ -142,10 +169,11 @@ async function deleteImage(image) {
     loadGallery();
   }
 }
-
 // 初期読み込み
-window.addEventListener('DOMContentLoaded', loadGallery);
-
+window.addEventListener('DOMContentLoaded', () => {
+  loadGallery();
+  loadVisitorCount(); // ← これで人数表示が動き出す！
+});
 // フェイク通知
 const fakeMessages = [
   "你 張 相 傳 咗 一 陣.",

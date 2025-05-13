@@ -10,15 +10,27 @@
   <div class="concept">
     <h1>Fake Face</h1>
     <p>
-      人は自分の顔に価値をつけて、売りに出し、自ら消費される。<br>
-      <br>
-      SNSとマーケティングはもはや区別できない。<br>
-      <br>
-      美しさとは本質ではなく、「今の空気」に合っているかどうか。<br>
-      <br>
-      一時的なマッチングに価値を見出す社会に、あなたの顔はどう評価されるのか。
+      人は、自分のかたちに価値を与え、それを取引する。<br><br>
+      SNSとマーケティングの境界は曖昧で、<br>
+      個性は、流通するデータや資産として扱われるようになった。<br>
+      今、支持されているものに、本質はあるのか。<br>
+      それは、アルゴリズムと社会の空気に、偶然適合しただけではないのか。<br><br>
+      多くの評価は、時代との一時的な一致に依存している。<br>
+      それでも人は、その数値を自分の価値だと錯覚してしまう。<br>
+      本質のない数値に、意味を補完する行為が評価の構造を機能させている。<br><br>
+      このインターフェースは、偶然のマッチングを模倣し、「評価の構造」を露出させる。<br>
+      数値に反応し、意味を感じてしまう瞬間を、可視化する装置として。<br><br>
+      撮影されたデータには、非公開の基準によりスコアが算出される。
     </p>
   </div>
+
+  <div class="note">
+    <p>
+      このページは、限られた範囲でのみ知られています。<br>
+      記録はローカルで処理され、保存しない限り、自動的に破棄される予定です。
+    </p>
+  </div>
+
 
   <div id="camera-container">
     <video id="video" autoplay playsinline></video>
@@ -47,9 +59,18 @@
 
   <div id="gallery">
     <h2>Gallery</h2>
-    <div id="gallery-grid"></div>
+    <div style="display: flex;">
+      <!-- ✅ カウントスクロール表示 -->
+      <div id="visitor-marquee-wrapper">
+        <div id="visitor-marquee">
+          <!-- JSで人数行が自動で追加される -->
+        </div>
+      </div>
+  
+      <!-- ✅ ギャラリー画像 -->
+      <div id="gallery-grid"></div>
+    </div>
   </div>
-
   <script src="script.js"></script>
   <script type="module">
     import {
@@ -67,7 +88,8 @@
         }
       });
     };
-  
+
+
     initFaceDetection();
   </script>
   <!-- 撮影フラッシュ -->
