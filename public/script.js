@@ -151,7 +151,7 @@ async function loadVisitorCount() {
 
   const line = document.createElement('div');
   line.className = 'visitor-line';
-  line.textContent = `${data.count}人が顔を置いていきました`;
+  line.textContent = `${data.count}People left their faces there.`;
   marquee.appendChild(line);
 }
 
