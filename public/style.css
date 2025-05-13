@@ -289,9 +289,9 @@ button {
 
 .visitor-line {
   font-size: 15px;
-  color: #ff9898;
+  color:#b5010194;
   padding: 8px 0;
-  font-family: "Snell Roundhand",  "a-otf-ryumin-pr6n", "Ryumin", serif;
+  font-family:  "a-otf-ryumin-pr6n", "Ryumin", serif;
   white-space: nowrap;
 
 }
