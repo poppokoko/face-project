@@ -293,7 +293,7 @@ button {
   padding: 8px 0;
   font-family: "Courier New", Courier, monospace;
   white-space: nowrap;
-  transform: scale(0.9, 1);
+  transform: scale(0.6, 1);
 
 }
 @keyframes scroll-up {
