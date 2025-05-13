@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "a-otf-ryumin-pr6n", "Ryumin", serif;
-  background: #fdedd8;
+  background: #ffffff;
   color: #000;
   padding: 20px;
 }
@@ -288,8 +288,8 @@ button {
 }
 
 .visitor-line {
-  font-size: 13px;
-  color: #39FF14;
+  font-size: 15px;
+  color: #ff9898;
   padding: 8px 0;
   font-family: "Snell Roundhand",  "a-otf-ryumin-pr6n", "Ryumin", serif;
   white-space: nowrap;
