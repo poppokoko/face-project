@@ -149,12 +149,10 @@ async function loadVisitorCount() {
   const marquee = document.getElementById('visitor-marquee');
   marquee.innerHTML = '';
 
-  for (let i = 0; i < 30; i++) {
-    const line = document.createElement('div');
-    line.className = 'visitor-line';
-    line.textContent = `${data.count}人が顔を置いていきました`;
-    marquee.appendChild(line);
-  }
+  const line = document.createElement('div');
+  line.className = 'visitor-line';
+  line.textContent = `${data.count}人が顔を置いていきました`;
+  marquee.appendChild(line);
 }
 
 // 削除処理
