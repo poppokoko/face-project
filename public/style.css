@@ -288,7 +288,7 @@ button {
   font-family: monospace;
   text-align: left;
 
-  transform: rotate(-90deg);
+
   transform-origin: left top;
 }
 @keyframes scroll-up {
